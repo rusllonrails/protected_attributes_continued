@@ -46,11 +46,11 @@ module ActiveRecord
     #
     # Expects arguments in the same format as <tt>Base.new</tt>.
     def first_or_initialize(attributes = nil, options = {}, &block)
-      first || new(attributes, options, &block)
+      first || new(attributes, &block)
     end
 
     def find_or_initialize_by(attributes, options = {}, &block)
-      find_by(attributes.respond_to?(:to_unsafe_h) ? attributes.to_unsafe_h : attributes) || new(attributes, options, &block)
+      find_by(attributes.respond_to?(:to_unsafe_h) ? attributes.to_unsafe_h : attributes) || new(attributes, &block)
     end
 
     def find_or_create_by(attributes, options = {}, &block)

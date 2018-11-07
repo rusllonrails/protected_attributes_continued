@@ -42,7 +42,7 @@ module ActiveRecord
           if attributes.is_a?(Array)
             attributes.collect { |attr| create(attr, options, &block) }
           else
-            object = new(attributes, options, &block)
+            object = new(attributes, &block)
             object.save
             object
           end

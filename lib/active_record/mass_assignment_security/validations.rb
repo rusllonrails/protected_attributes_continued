@@ -12,7 +12,7 @@ module ActiveRecord
           if attributes.is_a?(Array)
             attributes.collect { |attr| create!(attr, options, &block) }
           else
-            object = new(attributes, options)
+            object = new(attributes)
             yield(object) if block_given?
             object.save!
             object
