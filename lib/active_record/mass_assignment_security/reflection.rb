@@ -5,7 +5,7 @@ module ActiveRecord
         undef :build_association
 
         def build_association(*options, &block)
-          klass.new(*options, &block)
+          klass.new(&block)
         end
       end
     else
@@ -13,7 +13,7 @@ module ActiveRecord
         undef :build_association
 
         def build_association(*options, &block)
-          klass.new(*options, &block)
+          klass.new(&block)
         end
       end
     end
